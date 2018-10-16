@@ -1,1 +1,2 @@
-GET           /*file                       controller.UiController.asset(file)
+GET        /             controller.UiController.index()
+GET        /*file        controller.UiController.asset(file)
