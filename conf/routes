@@ -1,2 +1,9 @@
-GET        /             controller.UiController.index()
-GET        /*file        controller.UiController.asset(file)
+GET        /                  controller.UiController.index()
+
+GET        /index             controller.UiController.index()
+GET        /chorleiter        controller.UiController.chorleiter()
+GET        /kontakt           controller.UiController.kontakt()
+GET        /konzerte          controller.UiController.konzerte()
+GET        /programm          controller.UiController.programm()
+
+GET        /*file             controller.UiController.asset(file)
