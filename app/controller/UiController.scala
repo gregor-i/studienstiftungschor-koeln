@@ -9,7 +9,7 @@ class UiController @Inject()(assets: Assets) extends InjectedController {
   private def ui(html:Html) = Action(Ok(html))
 
   def index() = ui(views.html.index())
-  def chorleiter() = ui(views.html.chorleiter())
+  def chorleitung() = ui(views.html.chorleitung())
   def kontakt() = ui(views.html.kontakt())
   def konzerte() = ui(views.html.konzerte())
   def programm() = ui(views.html.programm())
