@@ -1,6 +1,4 @@
 GET        /                   controller.UiController.index()
-
-GET        /index              controller.UiController.index()
 GET        /chorleitung        controller.UiController.chorleitung()
 GET        /kontakt            controller.UiController.kontakt()
 GET        /konzerte           controller.UiController.konzerte()

@@ -2,7 +2,7 @@
 
 <nav class="navbar is-white" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="/index">
+        <a class="navbar-item" href="/">
             <img src="/images/Logo-small-white.png" width="61" height="28">
         </a>
 
@@ -19,11 +19,11 @@
                 <a class="navbar-item @if(currentlyActive == url) {is-active} else {}" href="@url">@text</a>
             }
 
-            @item("index", "Startseite")
-            @item("programm", "Aktuelles Programm")
-            @item("konzerte", "Konzerte")
-            @item("chorleitung", "Chorleitung")
-            @item("kontakt", "Kontakt")
+            @item("/", "Startseite")
+            @item("/programm", "Aktuelles Programm")
+            @item("/konzerte", "Konzerte")
+            @item("/chorleitung", "Chorleitung")
+            @item("/kontakt", "Kontakt")
         </div>
     </div>
 </nav>
