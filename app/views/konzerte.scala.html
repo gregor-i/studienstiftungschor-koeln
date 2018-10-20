@@ -1,7 +1,10 @@
 <!DOCTYPE>
 <html>
 
-    @components.head("Studienstiftungschor Köln - Konzerte")
+    @components.head(
+        title = "Studienstiftungschor Köln - Konzerte",
+        description = "Die Übersicht über unseren Konzerte, mit Hörproben."
+    )
 
 <body>
     @components.navbar("/konzerte")
@@ -34,10 +37,7 @@
         }
 
         <article class="media">
-            <figure class="media-left">
-                <p class="image is-128x128" >
-                </p>
-            </figure>
+            @flyer("images/konzerte/plakate/Plakat-undefined.svg")
             <div class="media-content">
                 <div>
                     <p><strong>Starlight</strong></p>

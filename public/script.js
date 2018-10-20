@@ -7,10 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const $target = document.getElementById(target);
         el.classList.toggle('is-active');
         $target.classList.toggle('is-active');
-      })
-      ;
-    })
-    ;
+      });
+    });
   }
-})
-;
+});
