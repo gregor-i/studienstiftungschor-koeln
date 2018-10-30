@@ -1,3 +1,48 @@
+@import data.Concert
+
+@concertCard(concert: Concert) = {
+    <div class="card">
+        <div class="card-content">
+            <div class="media">
+                <figure class="media-left">
+                    <p class="image is-128x128 image-container">
+                        <a href="@{concert.flyerLinkUrl.getOrElse(concert.flyerImageUrl)}">
+                            <img src="@concert.flyerImageUrl">
+                        </a>
+                    </p>
+                </figure>
+                <div class="media-content">
+                    <p class="title is-4">@concert.name</p>
+                    <p class="subtitle is-6">@concert.date</p>
+                </div>
+            </div>
+
+            <div class="content">
+            @for(line <- concert.content) {
+                <p>
+                @Html(line)
+                </p>
+            }
+            </div>
+        </div>
+        <footer class="card-footer">
+            <a class="card-footer-item" href="@concert.flyerLinkUrl.getOrElse(concert.flyerImageUrl)">
+                <img src="images/zoom_in.svg" alt="Fyler">
+            </a>
+            @for(audioSample <- concert.audioSamples) {
+                <a class="card-footer-item" href="@audioSample">
+                    <img src="images/music_note.svg" alt="Hörbeispiel">
+                </a>
+            }
+            @for(image <- concert.images) {
+                <a class="card-footer-item" href="@image">
+                    <img src="images/photo.svg" alt="Konzertbild">
+                </a>
+            }
+        </footer>
+    </div>
+}
+
 <!DOCTYPE>
 <html>
 
@@ -9,264 +54,18 @@
 <body>
     @components.navbar("/konzerte")
 
-<section class="section">
-    <div class="container">
+<div class="columns is-centered">
+    <div class="column single-column">
 
-        <h1 class="title is-1">Konzerte</h1>
+        <section class="section">
 
-        @flyer(url: String, href: Option[String] = None) = {
-            <figure class="media-left">
-                <p class="image is-128x128" >
-                    <a href="@{href.getOrElse(url)}">
-                        <img src="@url">
-                    </a>
-                </p>
-            </figure>
-        }
+            <h1 class="title is-1">Konzerte</h1>
 
-        @mp3(url: String) = {
-            <a class="level-item" href="@url">
-                <img src="images/play-circle-outline.svg">
-            </a>
-        }
+            @for(concert <- Concert.all) {
+                @concertCard(concert)
+            }
 
-        @pic(url: String) = {
-            <a class="level-item" href="@url">
-                <img src="images/magnify-plus-outline.svg">
-            </a>
-        }
-
-        <article class="media">
-            @flyer("images/konzerte/plakate/Plakat_thumbnail_Across_the_Universe.png", Some("images/konzerte/plakate/Plakat_Across_the_Universe.jpg"))
-            <div class="media-content">
-                <div>
-                    <p><strong>Across the Universe</strong></p>
-                    <p>15. Dezember 2018, Aula der Universität, Albertus-Magnus-Platz</p>
-                    <p>siehe <a href="/programm">Programm</a> für Informationen</p>
-                </div>
-            </div>
-        </article>
-
-        <article class="media">
-            @flyer("images/konzerte/plakate/Plakat_Set_Fire.jpg")
-        <div class="media-content">
-            <div>
-                <p><strong>Set Fire To The Rain</strong></p>
-                <p>8. Juli 2018</p>
-                <p>Feuer und Wasser mit Stücken von Mozart, Toto, Edwar Elgar, Dan Ikuma, Bach, "Juli",
-                    John Conahan, Adele, "Earth, Wind, and Fire", John Bennett, ...</p>
-                <p>unter Leitung von Johanna Vinnen und Katharina Vincon</p>
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-left">
-                    @mp3("hoerbeispiele/Air-Konzert.mp3")
-                    @pic("images/konzerte/Set_fire_sml.jpg")
-                </div>
-            </nav>
-        </div>
-        </article>
-
-        <article class="media">
-            @flyer("images/konzerte/plakate/Plakat_Christmas_Royale.jpg")
-        <div class="media-content">
-            <div>
-                <p><strong>Let Earth Receive Her Queen</strong></p>
-                <p>9. Dezember 2017</p>
-                <p>Die besondere Weihnachtseinstimmung mit Stücken von Ola Gjeilo, Pentatonix, Edward Elgar,
-                    Hubert Parry, Eric Whitacre, Leonard Cohen, Coldplay und natürlich Queen</p>
-                <p>unter Leitung von Johanna Vinnen und Katharina Vincon</p>
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-left">
-                    @mp3("/hoerbeispiele/Konzert_Christmas.mp3")
-                    @pic("/images/konzerte/Let_Earth.jpg")
-                </div>
-            </nav>
-        </div>
-        </article>
-
-        <article class="media">
-            @flyer("images/konzerte/plakate/Plakat-Nacht.jpg")
-        <div class="media-content">
-            <div>
-                <p><strong>On This Shining Night</strong></p>
-                <p>25. Juni 2017</p>
-                <p>Amerikanische und britische Stücke zur Nacht von C.H.H.Parry, E.Elgar, Th.Vautor, A.Sullivan, M.Lauridsen,
-                    S.Barber, P.Ballard, L. Bernstein, A.Lennox, E.Whitacre, A.Lloyd Webber, den Beatles ...</p>
-                <p>unter Leitung von Johanna Vinnen und Katharina Vincon</p>
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-left">
-                    @mp3("hoerbeispiele/Konzert_Nacht.mp3")
-                    @pic("images/konzerte/On_this_shining_night.jpg")
-                </div>
-            </nav>
-        </div>
-        </article>
-
-        <article class="media">
-            @flyer("images/konzerte/plakate/Flyer_Weihnachtskonzert.jpg")
-        <div class="media-content">
-            <div>
-                <p><strong>Machet die Tore weit</strong></p>
-                <p>3. Dezember 2016</p>
-                <p>Adventseinstimmung von Mozart, Palestrina, Rutter, Rheinberger, Bruckner, Mendelssohn-Bartoldy, Reinthaler, de Boeck, ...</p>
-                <p>unter Leitung von Johanna Vinnen und Katharina Vincon</p>
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-left">
-                    @mp3("hoerbeispiele/14-Ave_verum.mp3")
-                    @pic("images/konzerte/Machet_die_Tore.jpg")
-                </div>
-            </nav>
-        </div>
-        </article>
-
-        <article class="media">
-            @flyer("images/konzerte/plakate/Plakat_Nordlichter.jpg")
-        <div class="media-content">
-            <div>
-                <p><strong>Nordlichter</strong></p>
-                <p>3. Juli 2016</p>
-                <p>Eine Reise durch Skandinavien von Ola Gjeilo, Jean Sibelius, Edward Elgar, Hugo Alfven, Cyrillus Kreek, Stefan Nilsson, Waldemar Ahlen, ...</p>
-                <p>unter Leitung von Johanna Vinnen und Katharina Vincon</p>
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-left">
-                @pic("images/konzerte/Nordlichter_2.jpg")
-                </div>
-            </nav>
-        </div>
-        </article>
-
-        <article class="media">
-            @flyer("images/konzerte/plakate/Plakat_Viva_la_Vida.jpg")
-        <div class="media-content">
-            <div>
-                <p><strong>Viva la Vida</strong></p>
-                <p>13. Dezember 2015</p>
-                <p>Zeitgenössische Hits im neuen Chorgewand von Coldplay, Adele, Wise Guys, Snow Patrol, Aura Dione, Rammstein, Billy Joel, ...</p>
-                <p>unter Leitung von Johanna Vinnen und Katharina Vincon</p>
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-left">
-                    @mp3("hoerbeispiele/Viva_la_Vida_Konzert.mp3")
-                    @pic("images/konzerte/Viva_la_Vida_sml.jpg")
-                </div>
-            </nav>
-        </div>
-        </article>
-
-        <article class="media">
-            @flyer("images/konzerte/plakate/Plakat_Romantikkonzert.png")
-        <div class="media-content">
-            <div>
-                <p><strong>Ich hab die Nacht geträumet</strong></p>
-                <p>27. Juni 2015</p>
-                <p>Romantische Chormusik vom 19. Jahrhundert bis heute von Max Reger, Johannes Brahms,
-                    Felix Mendelssohn, Josef Rheinberger, Waldemar Ahlen, Cole Porter, Billy Joel, Henry Mancini,
-                    Vincent Clarke, Calvin Carter, ...</p>
-                <p>unter Leitung von Johanna Vinnen und Katharina Vincon</p>
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-left">
-                    @mp3("hoerbeispiele/Romantikkonzert_15.mp3")
-                    @pic("images/konzerte/Romantikkonzert.jpg")
-                </div>
-            </nav>
-        </div>
-        </article>
-
-        <article class="media">
-            @flyer("images/konzerte/plakate/Plakat_Nikolaus.jpg")
-        <div class="media-content">
-            <div>
-                <p><strong>Besinnliches zur Adventszeit</strong></p>
-                <p>6. Dezember 2014</p>
-                <p>Chorkonzert in St. Nikolaus in Köln Sülz von W.A. Mozart, J. Brahms, C. Saint-Saëns, J. Rheinberger, E. Elgar,
-                    J. Rutter, M.L. Lightfood, M.B. Bender, K. Franklin, ...</p>
-                <p>unter Leitung von Johanna Vinnen, Katharina Vincon und Vera Cremer</p>
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-left">
-                    @mp3("hoerbeispiele/The_Lord_bless_you.mp3")
-                    @pic("images/konzerte/Adventskonzert_klein.jpg")
-                </div>
-            </nav>
-        </div>
-        </article>
-
-        <article class="media">
-            @flyer("images/konzerte/plakate/Plakat_StustiKonzert_2014.jpg")
-        <div class="media-content">
-            <div>
-                <p><strong>Musicals &amp; Carmen</strong></p>
-                <p>1. Juni 2014, Chorforum Essen</p>
-                <p>Gemeinschaftskonzert des Studienstiftungsorchesters NRW und des Kölner Studienstiftungschores</p>
-                <p>Der König der Löwen, West-Side-Story, Robert Schumanns Zigeunerleben</p>
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-left">
-                    @mp3("hoerbeispiele/02_Tonight.mp3")
-                    @pic("images/konzerte/konzert16_sml.jpg")
-                </div>
-            </nav>
-        </div>
-        </article>
-
-        <article class="media">
-            @flyer("images/konzerte/plakate/Plakat_Draw_On.jpg")
-        <div class="media-content">
-            <div>
-                <p><strong>Draw On Sweet Night</strong></p>
-                <p>30. November 2013</p>
-                <p>Gemeinschaftskonzert des Studienstiftungsorchesters NRW (Leitung: Gregor Mayrhofer) und des Kölner Studienstiftungschores (Leitung: Vera Cremer)</p>
-                <p>Max Bruch: Romanze, englische Madrigale</p>
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-left">
-                    @mp3("hoerbeispiele/Konzert_30112013_09.mp3")
-                    @pic("images/konzerte/Konzert_Nov2013.jpg")
-                </div>
-            </nav>
-        </div>
-        </article>
-
-
-        <article class="media">
-            @flyer("images/konzerte/plakate/Plakat_Schoepfung_wide.jpg")
-        <div class="media-content">
-            <div>
-                <p><strong>Die Schöpfung</strong></p>
-                <p>4. Mai 2013</p>
-                <p>"Die Schöpfung" von Joseph Haydn</p>
-                <p>Kölner Studienstiftungschor, „Vokalensemble Caleidon“ der Hochschule für Musik und Tanz Köln,
-                    Orchester aus Studierenden der Hochschule für Musik und Tanz Köln (Leitung: Judith Mohr, Alexander Lüken und Paul Krämer)</p>
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-left">
-                @mp3("hoerbeispiele/Schoepfung_11_Chor.mp3")
-                </div>
-            </nav>
-        </div>
-        </article>
-
-        <article class="media">
-            @flyer("images/konzerte/plakate/Plakat_Spaetherbst.jpg")
-        <div class="media-content">
-            <div>
-                <p><strong>Spätherbst</strong></p>
-                <p>25. November 2012</p>
-                <p>Chorkonzert in St. Aposteln in Köln (Leitung: Paul Krämer)</p>
-                <p>u.a. Stücke von Johannes Brahms und zeitgenössische Kompositionen</p>
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-left">
-                @pic("images/konzerte/Spaetherbst.jpg")
-                </div>
-            </nav>
-        </div>
-        </article>
+        </section>
     </div>
-</section>
+</div>
 </body></html>
