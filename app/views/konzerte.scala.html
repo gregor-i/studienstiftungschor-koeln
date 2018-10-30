@@ -14,10 +14,10 @@
 
         <h1 class="title is-1">Konzerte</h1>
 
-        @flyer(url: String) = {
+        @flyer(url: String, href: Option[String] = None) = {
             <figure class="media-left">
                 <p class="image is-128x128" >
-                    <a href="@url">
+                    <a href="@{href.getOrElse(url)}">
                         <img src="@url">
                     </a>
                 </p>
@@ -37,10 +37,10 @@
         }
 
         <article class="media">
-            @flyer("images/konzerte/plakate/Plakat-undefined.svg")
+            @flyer("images/konzerte/plakate/Plakat_thumbnail_Across_the_Universe.png", Some("images/konzerte/plakate/Plakat_Across_the_Universe.jpg"))
             <div class="media-content">
                 <div>
-                    <p><strong>Across The Universe</strong></p>
+                    <p><strong>Across the Universe</strong></p>
                     <p>15. Dezember 2018, Aula der Universität, Albertus-Magnus-Platz</p>
                     <p>Mit Stücken von Bruckner, Beatles, Schubert, Rammstein, Johann Schulz,
                         Monteverdi, Queen, Erik Esenvalds, David Bowie und Justin Hurwitz, ...</p>
