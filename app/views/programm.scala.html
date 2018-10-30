@@ -3,30 +3,36 @@
 
     @components.head(
         title = "Studienstiftungschor Köln - Aktuelles Programm",
-        description = "Wir beginnen gerade die Proben für unser neues Konzert Starlight."
+        description = "Wir beginnen gerade die Proben für unser neues Konzert Across the Universe."
     )
 
 <body>
     @components.navbar("/programm")
 
-<section class="section">
-
-    <div class="columns is-mobile is-centered">
-        <div class="column is-half">
-            @*<div class="image">*@
-                <img src="images/konzerte/plakate/Plakat_Across_the_Universe.jpg">
-            @*</div>*@
-        </div>
-    </div>
+<section class="hero is-medium is-bold hero-with-image" style="
+    background-image: url('images/konzerte/plakate/Plakat_Across_the_Universe.jpg');
+    background-position-y: 40%;
+    background-size: 105% auto;">
+    <a class="hero-body" href="images/konzerte/plakate/Plakat_Across_the_Universe.jpg"></a>
 </section>
+
 <section class="section">
     <div class="content container">
         <h1 class="title is-1">Unser aktuelles Programm</h1>
 
-        <p> Wir beginnen gerade die Proben für unser neues Konzert <em>Across the Universe</em>.
-            Wir haben schon einige Stücke dafür von Bruckner, den Beatles, Schubert, Rammstein, Johann Schulz, Monteverdi, Queen, Erik Esenvalds, David Bowie und Justin Hurwitz, aber wir sind noch auf der Suche nach weiteren passenden Ideen, insbesondere klassischen Stücken.
+        <p>
+            Die Proben zu unserem nächsten Konzert <strong>Across the Universe</strong> sind schon im vollen Gange.
+            Das Programm besteht aus Werken von Bruckner, den Beatles, Schubert, Rammstein, Johann Schulz, Monteverdi, Queen, Erik Esenvalds, David Bowie und Justin Hurwitz.
+            Ausserdem gibt es eine Uraufführung von Martín Letelier.
         </p>
-        <p> Das Konzert wird am 15. Dezember 2018 in der <a href="https://goo.gl/maps/bywD2PSvwtq" target="_blank">Aula der Universität (Albertus-Magnus-Platz 1)</a> sein. </p>
+
+        <article class="message is-info">
+            <div class="message-body">
+                Das Konzert wird am 15. Dezember 2018 um 17 Uhr in der <a href="https://goo.gl/maps/bywD2PSvwtq" target="_blank">Aula 2 der Universität (Albertus-Magnus-Platz 1)</a> stattfinden.
+            </div>
+        </article>
     </div>
 </section>
-</body></html>
+</body>
+
+</html>
