@@ -55,7 +55,7 @@ object Concert {
       images = Seq("images/konzerte/Machet_die_Tore.jpg")
     ),
     Concert(
-      name = "Nordlichter",
+      name = "Nord&shy;lichter",
       date = "3. Juli 2016",
       flyerImageUrl = "images/konzerte/plakate/Plakat_Nordlichter.jpg",
       content = Seq("Eine Reise durch Skandinavien von Ola Gjeilo, Jean Sibelius, Edward Elgar, Hugo Alfven, Cyrillus Kreek, Stefan Nilsson, Waldemar Ahlen, ...", johannaUndKathi),
@@ -78,7 +78,7 @@ object Concert {
       images = Seq("images/konzerte/Romantikkonzert.jpg")
     ),
     Concert(
-      name = "Besinnliches zur Adventszeit",
+      name = "Besinnliches zur Advents&shy;zeit",
       date = "6. Dezember 2014",
       flyerImageUrl = "images/konzerte/plakate/Plakat_Nikolaus.jpg",
       content = Seq("Chorkonzert in St. Nikolaus in Köln Sülz von W.A. Mozart, J. Brahms, C. Saint-Saëns, J. Rheinberger, E. Elgar, J. Rutter, M.L. Lightfood, M.B. Bender, K. Franklin, ...",

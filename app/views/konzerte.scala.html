@@ -12,7 +12,7 @@
                     </p>
                 </figure>
                 <div class="media-content">
-                    <p class="title is-4">@concert.name</p>
+                    <p class="title is-4">@Html(concert.name)</p>
                     <p class="subtitle is-6">@concert.date</p>
                 </div>
             </div>
@@ -54,7 +54,7 @@
 <body>
     @components.navbar("/konzerte")
 
-<div class="columns is-centered">
+<div class="columns is-centered is-mobile">
     <div class="column single-column">
 
         <section class="section">
