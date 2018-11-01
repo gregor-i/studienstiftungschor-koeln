@@ -22,11 +22,11 @@ object Concert {
     Concert(
       name = "Set Fire To The Rain",
       date = "8. Juli 2018",
-      flyerImageUrl = "images/konzerte/plakate/Plakat_Set_Fire.jpg",
+      flyerImageUrl = "images/konzerte/SS18/Plakat.jpg",
       content = Seq("Feuer und Wasser mit Stücken von Mozart, Toto, Edwar Elgar, Dan Ikuma, Bach, \"Juli\", John Conahan, Adele, \"Earth, Wind, and Fire\", John Bennett, ...",
         johannaUndKathi),
       audioSamples = Seq("hoerbeispiele/Air-Konzert.mp3"),
-      images = Seq("images/konzerte/Set_fire_sml.jpg")
+      images = Seq("images/konzerte/SS18/Chor.jpg")
     ),
     Concert(
       name = "Let Earth Receive Her Queen",
