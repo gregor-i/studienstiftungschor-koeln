@@ -27,16 +27,16 @@
         </div>
         <footer class="card-footer">
             <a class="card-footer-item" href="@concert.flyerLinkUrl.getOrElse(concert.flyerImageUrl)">
-                <img src="images/zoom_in.svg" alt="Fyler">
+                <img src="/images/zoom_in.svg" alt="Fyler">
             </a>
             @for(audioSample <- concert.audioSamples) {
                 <a class="card-footer-item" href="@audioSample">
-                    <img src="images/music_note.svg" alt="Hörbeispiel">
+                    <img src="/images/music_note.svg" alt="Hörbeispiel">
                 </a>
             }
             @for(image <- concert.images) {
                 <a class="card-footer-item" href="@image">
-                    <img src="images/photo.svg" alt="Konzertbild">
+                    <img src="/images/photo.svg" alt="Konzertbild">
                 </a>
             }
         </footer>
