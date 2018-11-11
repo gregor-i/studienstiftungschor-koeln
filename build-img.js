@@ -18,7 +18,9 @@ function copy(folder, file) {
 function createThumbnail(folder) {
   return Jimp.read(`resources/konzerte/${folder}/Plakat.jpg`)
     .catch(err => Jimp.read(`resources/konzerte/${folder}/Plakat.png`))
-    .then(img => img.scaleToFit(128, 128).write(`public/konzerte/${folder}/Plakat_128.jpg`))
+    .then(img => img.scaleToFit(128, 128)
+      .quality(30)
+      .write(`public/konzerte/${folder}/Plakat_128.jpg`))
 }
 
 function allowedFileEnding(file) {
