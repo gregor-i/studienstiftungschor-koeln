@@ -15,10 +15,11 @@ class HrefSpec extends FunSuite with Matchers with GuiceOneServerPerSuite {
   val wsClient = app.injector.instanceOf[WSClient]
 
   val host = s"http://localhost:$port"
+//  val host = "http://www.studienstiftungschor-koeln.de"
 
   val Link = "(href|src)=\"([^\"]*)\"".r
 
-  def await[A](fut: Future[A]): A = Await.result(fut, 10.seconds)
+  def await[A](fut: Future[A]): A = Await.result(fut, 100.seconds)
 
   def get(url: String): String =
     await(wsClient.url(host + url).get()
@@ -47,9 +48,8 @@ class HrefSpec extends FunSuite with Matchers with GuiceOneServerPerSuite {
       for (url <- internalLinks)
         url should startWith("/")
 
-      for (url <- internalLinks) {
+      for (url <- internalLinks)
         assert(status(url) == 200, s"url '$url' was not serves with status 200")
-      }
     }
   }
 }

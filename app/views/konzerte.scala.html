@@ -6,8 +6,8 @@
             <div class="media">
                 <figure class="media-left">
                     <p class="image is-128x128 image-container">
-                        <a href="@{concert.flyerLinkUrl.getOrElse(concert.flyerImageUrl)}">
-                            <img src="@concert.flyerImageUrl">
+                        <a href="@concert.flyerImageUrl">
+                            <img src="@concert.flyerThumbnailUrl" alt="Flyer">
                         </a>
                     </p>
                 </figure>
@@ -26,7 +26,7 @@
             </div>
         </div>
         <footer class="card-footer">
-            <a class="card-footer-item" href="@concert.flyerLinkUrl.getOrElse(concert.flyerImageUrl)">
+            <a class="card-footer-item" href="@concert.flyerImageUrl">
                 <img src="/images/zoom_in.svg" alt="Fyler">
             </a>
             @for(audioSample <- concert.audioSamples) {
@@ -44,7 +44,7 @@
 }
 
 <!DOCTYPE>
-<html>
+<html lang="de">
 
     @components.head(
         title = "Studienstiftungschor Köln - Konzerte",
