@@ -12,7 +12,9 @@ class UiController @Inject()(assets: Assets) extends InjectedController {
   def chorleitung() = ui(views.html.chorleitung())
   def kontakt() = ui(views.html.kontakt())
   def konzerte() = ui(views.html.konzerte())
-  def programm() = ui(views.html.programm())
+  def programm() =  Action {
+    Redirect("/")
+  }
 
   def asset(path: String) = assets.at(path)
 }

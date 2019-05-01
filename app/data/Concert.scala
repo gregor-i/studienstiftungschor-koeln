@@ -11,12 +11,25 @@ case class Concert(name: String,
 object Concert {
   val johannaUndKathi = "unter Leitung von Johanna Vinnen und Katharina Vincon"
 
+  val SS19 = Concert(
+    name = "Stadt, Land, Fluss",
+    date = "14. Juli 2019",
+    flyerThumbnailUrl = "/images/Plakat-to-be-defined.svg",
+    flyerImageUrl = "/images/Plakat-to-be-defined.svg",
+    content = Seq(
+      """Unter dem Motto <strong>„Stadt, Land, Fluss“</strong> reisen wir dabei um die ganze Welt und präsentieren
+        |Stücke unterschiedlicher Epochen, z.B. von Antonín Dvořák, Enya, Franz Schubert, Frank
+        |Sinatra, Ola Gjeilo, Jacques Brel, Francesco S. Patavino, Edith Piaf und den Beach Boys.
+      """.stripMargin,
+      johannaUndKathi)
+  )
+
   val WS18 = Concert(
     name = "Across the Universe",
-    date = "15. Dezember 2018, Aula der Universität, Albertus-Magnus-Platz",
+    date = "15. Dezember 2018",
     flyerThumbnailUrl = "/konzerte/WS18/Plakat_128.jpg",
     flyerImageUrl = "/konzerte/WS18/Plakat.jpg",
-    content = Seq("Details zu diesem Konzert gibt es unter <a href=\"/programm\">Programm</a> und im <a href=\"/konzerte/WS18/Plakat.jpg\">Flyer</a>.")
+    content = Seq("Details zu diesem Konzert gibt es im <a href=\"/konzerte/WS18/Plakat.jpg\">Flyer</a>.")
   )
 
   val SS18 = Concert(
@@ -142,5 +155,5 @@ object Concert {
   )
 
 
-  val all = Seq(WS18, SS18, WS17, SS17, WS16, SS16, WS15, SS15, WS14, SS14, WS13, SS13, WS12)
+  val all = Seq(SS19, WS18, SS18, WS17, SS17, WS16, SS16, WS15, SS15, WS14, SS14, WS13, SS13, WS12)
 }
