@@ -1,11 +1,11 @@
 name := "website-studienstiftungschor-koeln"
 
-scalaVersion in ThisBuild := "2.12.7"
+scalaVersion in ThisBuild := "2.12.8"
 
 enablePlugins(PlayScala)
 
 libraryDependencies += guice
 libraryDependencies += ws
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % Test
-libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.7" % Test
+libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.2" % Test
