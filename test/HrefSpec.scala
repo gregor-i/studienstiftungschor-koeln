@@ -38,7 +38,7 @@ class HrefSpec extends FunSuite with Matchers with GuiceOneServerPerSuite {
       .toSeq
   }
 
-  for (page <- Seq("/", "/chorleitung", "/kontakt", "/konzerte")) {
+  for (page <- Seq("/", "/ueber-uns", "/chorleitung", "/kontakt", "/konzerte")) {
     test(s"page '${page}': all internal links are absolute and get served from the server") {
       val links = crawlLinks(page)
       val internalLinks = links.filter(url => !url.startsWith("http://")

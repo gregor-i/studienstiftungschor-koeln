@@ -8,6 +8,11 @@
         <priority>1.00</priority>
     </url>
     <url>
+        <loc>http://www.studienstiftungschor-koeln.de/ueber-uns</loc>
+        <lastmod>@lastmod</lastmod>
+        <priority>0.10</priority>
+    </url>
+    <url>
         <loc>http://www.studienstiftungschor-koeln.de/konzerte</loc>
         <lastmod>@lastmod</lastmod>
         <priority>0.10</priority>

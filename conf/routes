@@ -3,6 +3,7 @@ GET        /chorleitung        controller.UiController.chorleitung()
 GET        /kontakt            controller.UiController.kontakt()
 GET        /konzerte           controller.UiController.konzerte()
 GET        /programm           controller.UiController.programm()
+GET        /ueber-uns          controller.UiController.ueberUns()
 
 GET        /sitemap.xml        controller.SEOController.sitemap()
 

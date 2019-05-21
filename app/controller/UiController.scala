@@ -15,6 +15,8 @@ class UiController @Inject()(assets: Assets) extends InjectedController {
   def programm() =  Action {
     Redirect("/")
   }
+  def ueberUns() = ui(views.html.ueberUns())
+
 
   def asset(path: String) = assets.at(path)
 }
