@@ -8,6 +8,9 @@
     <meta name="description" content="@description">
     <meta name="keywords" content="chor, köln, koeln, studienstiftung, studienstiftungschor">
     <meta name="theme-color" content="#f5f5f5"/>
+    @if(canonicalUrl != "/"){
+        <meta name="robots" content="noindex"/>
+    }
     <title>@title</title>
     <link href="/style.css" rel="stylesheet" />
     <link rel="icon" href="/images/logo.svg" type="image/x-icon">
