@@ -11,13 +11,15 @@ case class Concert(name: String,
 object Concert {
   val johannaUndKathi = "unter Leitung von Johanna Vinnen und Katharina Vincon"
 
+  val toBeDefined = "/images/Plakat-to-be-defined.svg"
+
   val SS19 = Concert(
-    name = "Stadt, Land, Fluss",
+    name = "Heimweh Fernweh",
     date = "14. Juli 2019",
-    flyerThumbnailUrl = "/images/Plakat-to-be-defined.svg",
-    flyerImageUrl = "/images/Plakat-to-be-defined.svg",
+    flyerThumbnailUrl = "/konzerte/SS19/Plakat_128.jpg",
+    flyerImageUrl = "/konzerte/SS19/Plakat.jpg",
     content = Seq(
-      """Unter dem Motto <strong>„Stadt, Land, Fluss“</strong> reisen wir dabei um die ganze Welt und präsentieren
+      """Unter dem Motto <strong>Heimweh Fernweh</strong> reisen wir dabei um die ganze Welt und präsentieren
         |Stücke unterschiedlicher Epochen, z.B. von Antonín Dvořák, Enya, Franz Schubert, Frank
         |Sinatra, Ola Gjeilo, Jacques Brel, Francesco S. Patavino, Edith Piaf und den Beach Boys.
       """.stripMargin,
@@ -29,7 +31,11 @@ object Concert {
     date = "15. Dezember 2018",
     flyerThumbnailUrl = "/konzerte/WS18/Plakat_128.jpg",
     flyerImageUrl = "/konzerte/WS18/Plakat.jpg",
-    content = Seq("Details zu diesem Konzert gibt es im <a href=\"/konzerte/WS18/Plakat.jpg\">Flyer</a>.")
+    content = Seq(
+      "<strong>Across the Universe</strong> mit Werken von Bruckner, den Beatles, Schubert, Rammstein, Johann Schulz, Monteverdi, Queen, Erik Esenvalds, David Bowie und Justin Hurwitz",
+      "Ausserdem gibt es eine Uraufführung von Martín Letelier",
+      johannaUndKathi
+    )
   )
 
   val SS18 = Concert(
@@ -155,5 +161,5 @@ object Concert {
   )
 
 
-  val all = Seq(SS19, WS18, SS18, WS17, SS17, WS16, SS16, WS15, SS15, WS14, SS14, WS13, SS13, WS12)
+  val all = Seq(WS18, SS18, WS17, SS17, WS16, SS16, WS15, SS15, WS14, SS14, WS13, SS13, WS12)
 }
