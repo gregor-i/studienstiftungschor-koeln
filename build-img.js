@@ -28,7 +28,9 @@ function createPlakat(folder) {
   console.log(`downsizing resources/konzerte/${folder}/Plakat.jpg to public/konzerte/${folder}/Plakat.jpg`)
   return Jimp.read(`resources/konzerte/${folder}/Plakat.jpg`)
     .catch(err => Jimp.read(`resources/konzerte/${folder}/Plakat.png`))
-    .then(img => img.quality(80)
+    .then(img =>
+      img.scaleToFit(1400, 1400)
+      .quality(70)
       .write(`public/konzerte/${folder}/Plakat.jpg`))
 }
 
@@ -44,7 +46,6 @@ mkDirs(["public", "public/images", "public/chorleitung", "public/konzerte"])
 
 fs.readdirSync("resources/konzerte").forEach(folder => {
   mkDirs([`public/konzerte/${folder}`])
-  createThumbnail(folder)
   fs.readdirSync(`resources/konzerte/${folder}`)
     .filter(allowedFileEnding)
     .filter(notPlakat)
@@ -55,11 +56,11 @@ fs.readdirSync("resources/konzerte").forEach(folder => {
   createPlakat(folder)
 })
 
-console.log(`creating Thumbnail resources/konzerte/SS19/Plakat.jpg to public/konzerte/SS19/Plakat_home.jpg`)
-Jimp.read(`resources/konzerte/SS19/Plakat.jpg`)
-    .then(img => img.scaleToFit(504, 648)
-        .quality(80)
-        .write(`public/konzerte/SS19/Plakat_home.jpg`))
+console.log(`creating Homepage Image`)
+Jimp.read(`resources/konzerte/WS19/Plakat.jpg`)
+    .then(img => img.scaleToFit(504, 800)
+        .quality(70)
+        .write(`public/konzerte/WS19/Plakat_home.jpg`))
 
 fs.readdirSync("resources/images")
   .filter(allowedFileEnding)
