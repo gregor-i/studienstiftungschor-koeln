@@ -16,6 +16,7 @@ class UiController @Inject()(assets: Assets) extends InjectedController {
     Redirect("/")
   }
   def ueberUns() = ui(views.html.ueberUns())
+  def mitsingen() = ui(views.html.mitsingen())
 
 
   def asset(path: String) = assets.at(path)

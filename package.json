@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "bulma": "^0.7.1"
+    "bulma": "^0.7.5"
   },
   "devDependencies": {
     "browserify": "^14.4.0",
+    "clean-css-cli": "^4.3.0",
     "jimp": "^0.5.6",
-    "clean-css-cli": "^4.2.1",
-    "svgo": "^1.0.5"
+    "svgo": "^1.3.2"
   },
   "scripts": {
     "watch": "nodemon --watch frontend -e css,js,svg --exec \"npm run build\"",
@@ -14,6 +14,6 @@
     "build-svg": "svgo -f resources/images -o public/images",
     "build-img": "node build-img.js",
     "build-css": "cleancss node_modules/bulma/css/bulma.min.css resources/style.css -o public/style.css",
-    "build-js": "browserify -e resources/script.js  > public/script.js"
+    "build-js": "cp resources/script.js public/script.js"
   }
 }
