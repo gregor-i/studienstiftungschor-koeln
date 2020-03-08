@@ -13,6 +13,19 @@ object Concert {
 
   val toBeDefined = "/images/Plakat-to-be-defined.svg"
 
+  val ws19 = Concert(
+    name = "Winter Wonderland",
+    date = "8. Dezember 2019",
+    flyerThumbnailUrl = "/konzerte/WS19/Plakat_128.jpg",
+    flyerImageUrl = "/konzerte/WS19/Plakat.jpg",
+    content = Seq(
+      """Unter dem Motto <strong>Winter Wonderland</strong> präsentieren wir ein abwechslungsreiches Programm
+        |mit Stücken unterschiedlicher Epochen, z.B. von Edward Elgar, Mariah Carey, Antonio Vivaldi,
+        |Earth, Wind & Fire, Franz Schubert und Thomas Morley.""".stripMargin,
+      johannaUndKathi
+    )
+  )
+
   val SS19 = Concert(
     name = "Heimweh Fernweh",
     date = "14. Juli 2019",
@@ -94,7 +107,7 @@ object Concert {
     name = "Viva la Vida",
     date = "13. Dezember 2015",
     flyerThumbnailUrl = "/konzerte/WS15/Plakat_128.jpg",
-    flyerImageUrl = "/konzerte/WS15/Plakat.jpg",    content = Seq("Zeitgenössische Hits im neuen Chorgewand von Coldplay, Adele, Wise Guys, Snow Patrol, Aura Dione, Rammstein, Billy Joel, ...", johannaUndKathi),
+    flyerImageUrl = "/konzerte/WS15/Plakat.jpg", content = Seq("Zeitgenössische Hits im neuen Chorgewand von Coldplay, Adele, Wise Guys, Snow Patrol, Aura Dione, Rammstein, Billy Joel, ...", johannaUndKathi),
     audioSamples = Seq("/konzerte/WS15/Viva_la_Vida_Konzert.mp3"),
     images = Seq("/konzerte/WS15/Viva_la_Vida_sml.jpg")
   )
@@ -161,5 +174,5 @@ object Concert {
   )
 
 
-  val all = Seq(WS18, SS18, WS17, SS17, WS16, SS16, WS15, SS15, WS14, SS14, WS13, SS13, WS12)
+  val all = Seq(ws19, WS18, SS18, WS17, SS17, WS16, SS16, WS15, SS15, WS14, SS14, WS13, SS13, WS12)
 }

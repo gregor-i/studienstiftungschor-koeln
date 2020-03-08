@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
     "bulma": "^0.8.0"
   },
   "devDependencies": {
@@ -10,10 +11,11 @@
   },
   "scripts": {
     "watch": "nodemon --watch frontend -e css,js,svg --exec \"npm run build\"",
-    "build": "npm run build-img && npm run build-js && npm run build-css && npm run build-svg",
+    "build": "npm run build-img && npm run build-js && npm run build-css && npm run build-svg && npm run cp-fa",
     "build-svg": "svgo -f resources/images -o public/images",
     "build-img": "node build-img.js",
-    "build-css": "cleancss node_modules/bulma/css/bulma.min.css resources/style.css -o public/style.css",
-    "build-js": "cp resources/script.js public/script.js"
+    "build-css": "cleancss node_modules/bulma/css/bulma.min.css node_modules/@fortawesome/fontawesome-free/css/all.min.css resources/style.css --skip-rebase | sed 's/\\.\\.\\//\\//' > public/style.css",
+    "build-js": "cp resources/script.js public/script.js",
+    "cp-fa": "cp -r node_modules/@fortawesome/fontawesome-free/webfonts public"
   }
 }
