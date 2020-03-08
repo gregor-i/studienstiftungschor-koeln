@@ -1,16 +1,13 @@
-import org.scalatest.{FunSuite, Matchers}
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.play.guice.GuiceOneServerPerSuite
-import play.api.Application
-import play.api.inject.guice.GuiceApplicationBuilder
 import play.api.libs.ws.WSClient
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
 import scala.concurrent.{Await, Future}
 
-class HrefSpec extends FunSuite with Matchers with GuiceOneServerPerSuite {
-  override def fakeApplication(): Application = new GuiceApplicationBuilder().configure().build()
-
+class HrefSpec extends AnyFunSuite with Matchers with GuiceOneServerPerSuite {
 
   val wsClient = app.injector.instanceOf[WSClient]
 
@@ -38,8 +35,8 @@ class HrefSpec extends FunSuite with Matchers with GuiceOneServerPerSuite {
       .toSeq
   }
 
-  for (page <- Seq("/", "/ueber-uns", "/chorleitung", "/kontakt", "/konzerte")) {
-    test(s"page '${page}': all internal links are absolute and get served from the server") {
+  for (page <- Seq("/", "/ueber-uns", "/mitsingen", "/chorleitung", "/kontakt", "/konzerte")) {
+    test(s"page '${page}': all internal links are absolute and are served from the server") {
       val links = crawlLinks(page)
       val internalLinks = links.filter(url => !url.startsWith("http://")
         && !url.startsWith("https://")

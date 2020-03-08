@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "bulma": "^0.7.5"
+    "bulma": "^0.8.0"
   },
   "devDependencies": {
     "browserify": "^14.4.0",
