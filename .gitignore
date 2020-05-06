@@ -1,6 +1,8 @@
 *.class
 *.log
 
+.sass-cache/
+
 .idea
 target
 node_modules
