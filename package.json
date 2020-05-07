@@ -4,20 +4,21 @@
     "bulma": "^0.8.0"
   },
   "devDependencies": {
+    "http-server": "^0.12.3",
     "jimp": "^0.5.6",
+    "npm-run-all": "^4.1.5",
     "sass": "^1.26.5",
-    "svgo": "^1.3.2",
-    "npm-run-all": "^4.1.5"
+    "svgo": "^1.3.2"
   },
   "scripts": {
     "mkdir": "mkdir docs/images -p",
+    "server": "http-server docs",
     "build": "run-s mkdir && run-p build-*",
     "build-html": "sbt run",
     "build-svg": "svgo -f resources/images -o docs/images",
     "build-img": "node make-img.js",
     "build-static": "cp src/main/static/* docs/.",
     "build-css": "sass src/main/sass/style.sass > docs/style.css",
-    "build-js": "cp src/main/js/script.js docs/script.js",
-    "build-fonts": "cp -r node_modules/@fortawesome/fontawesome-free/webfonts docs/."
+    "build-fonts": "cp -r node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900* docs/."
   }
 }
