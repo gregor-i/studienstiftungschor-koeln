@@ -100,7 +100,7 @@ self.addEventListener('install', (e) => {
 self.addEventListener('fetch', (e) => {
   e.respondWith(
     caches.match(e.request).then((cachedResponse) =>
-       cachedResponse || fetchAndCache(request)
+       cachedResponse || fetchAndCache(e.request)
     )
   );
 });
