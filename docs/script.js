@@ -11,9 +11,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
-
-try {
-  navigator.serviceWorker.register('/service-worker.js', { scope: '/' });
-} catch {
-  console.log("service worker could not be installed")
-}
