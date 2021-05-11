@@ -1,0 +1,15 @@
+{
+  "short_name": "StuStiChor",
+  "name": "Studienstiftungschor Köln",
+  "icons": [
+    {
+      "src": "images/app_icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "scope":  "/"
+}
